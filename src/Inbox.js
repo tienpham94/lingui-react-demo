@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Trans } from '@lingui/macro';
+import { Trans, Plural, DateFormat } from '@lingui/macro';
 
 const Inbox = ({ messages = ['a', 'b'], markAsRead, user = {
   'name': 'Tien',
@@ -13,21 +13,28 @@ const Inbox = ({ messages = ['a', 'b'], markAsRead, user = {
       <div>
         <h1><Trans>Message Inbox</Trans></h1>
 
+        <p><Trans>Hello {name}</Trans></p>
+
         <p>
+          <Trans>
           See all <a href="/unread">unread messages</a>{" or "}
           <a onClick={markAsRead}>mark them</a> as read.
+          </Trans>
         </p>
 
         <p>
-          {
-            messagesCount === 1
-              ? "There's {messagesCount} message in your inbox."
-              : "There're {messagesCount} messages in your inbox."
-          }
+        <Plural
+            value={messagesCount}
+            _0="There're no messages"
+            one="There's # message in your inbox"
+            other="There're # messages in your inbox"
+        />
         </p>
 
         <footer>
-          Last login on {lastLogin}.
+          <Trans>
+            Last login on <DateFormat value={lastLogin} />.
+          </Trans>
         </footer>
       </div>
    )

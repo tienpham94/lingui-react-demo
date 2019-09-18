@@ -1,3 +1,8 @@
 {
-  "Message Inbox": "Příchozí zprávy"
+  "Hello {name}": "",
+  "Last login on {lastLogin,date}.": "",
+  "Message Inbox": "Příchozí zprávy",
+  "See all <0>unread messages</0> or <1>mark them</1> as read.": "",
+  "{messagesCount, plural, =0 {There're no messages} one {There's # message in your inbox} other {There're # messages in your inbox}}": "",
+  "{messagesCount, plural, one {There's # message in your inbox} other {There're # messages in your inbox}}": ""
 }
